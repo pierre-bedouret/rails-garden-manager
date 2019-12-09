@@ -4,9 +4,15 @@ class PlantsController < ApplicationController
     @plant = Plant.new(plant_params)
     @plant.garden = @garden
     if @plant.save
-      redirect_to garden_path(@garden)
+      respond_to do |format|
+        format.html { redirect_to garden_path(@garden) }
+        format.js # <-- will render `app/views/plants/create.js.erb`
+      end
     else
-      render 'gardens/show'
+      respond_to do |format|
+        format.html { render 'gardens/show' }
+        format.js # <-- idem
+      end
     end
   end
 
