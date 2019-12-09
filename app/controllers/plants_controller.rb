@@ -20,7 +20,10 @@ class PlantsController < ApplicationController
     @plant = Plant.find(params[:id])
     @garden = @plant.garden
     @plant.destroy
-    redirect_to garden_path(@garden)
+    respond_to do |format|
+      format.html { redirect_to garden_path(@garden) }
+      format.js # <-- render destroy.js.erb
+    end
   end
 
   private

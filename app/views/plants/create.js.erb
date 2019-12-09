@@ -11,6 +11,6 @@ function addPlant(newPlant) {
 <% if @plant.errors.any? %>
   refreshForm('<%= j render "plants/form", garden: @garden, plant: @plant %>');
 <% else %>
-  addReview('<%= j render "plants/plant_card", plant: @plant %>');
+  addPlant('<%= j render "plants/plant_card", plant: @plant %>');
   refreshForm('<%= j render "plants/form", garden: @garden, plant: Plant.new %>');
 <% end %>
