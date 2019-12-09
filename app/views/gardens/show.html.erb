@@ -7,12 +7,28 @@
 <div class="pt-30 container">
   <div class="cards">
     <% @garden.plants.each do |plant| %>
-      <%= render "plant_card", plant: plant %>
+      <%= render "plants/plant_card", plant: plant %>
     <% end %>
   </div>
   <div class="pt-30 row justify-content-center">
     <div class="col-12 col-md-4">
       <h4 class="text-center">Add a plant</h4>
+      <% if @plant.errors.any? %>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p>
+            Sorry! But <%= pluralize(@plant.errors.count, "error") %> prevented the plant being saved:
+          </p>
+          <ul>
+            <% @plant.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+          <p>
+            Please try again after correction
+          </p>
+        </div>
+      <% end %>
       <%= simple_form_for [ @garden, @plant ] do |f| %>
         <%= f.input :name, placeholder: "Palm tree" %>
         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
