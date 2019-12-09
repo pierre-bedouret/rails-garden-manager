@@ -29,13 +29,8 @@
           </p>
         </div>
       <% end %>
-      <%= simple_form_for [ @garden, @plant ] do |f| %>
-        <%= f.input :name, placeholder: "Palm tree" %>
-        <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
-        <div class="form-actions">
-          <%= f.submit "Add", class: "btn btn-flat" %>
-        </div>
-      <% end %>
+      <!-- form new plant -->
+      <%= render 'plants/form', garden: @garden, plant: @plant %>
     </div>
   </div>
 </div>
