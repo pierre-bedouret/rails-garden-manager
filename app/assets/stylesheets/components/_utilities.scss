@@ -9,6 +9,13 @@ a {
 .content {
   min-height: calc(100vh - 100px);
 }
+ .p-30 {
+  padding: 30px
+ }
  .pt-30 {
   padding-top: 30px;
  }
+
+.bg-orange {
+  background-color: $orange;
+}

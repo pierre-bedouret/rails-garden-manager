@@ -11,27 +11,24 @@
     <h2 id="how" class="text-center">How does it work?</h2>
     <div class="row">
       <div class="col-xs-12 col-md-6 col-lg-4">
-        <%= link_to new_garden_path do %>
-          <div class="icon">
-            <%= image_tag "garden.svg" %>
-          </div>
-        <% end %>
+        <!-- Fisrt icon -->
+        <div class="icon">
+          <%= image_tag "garden.svg" %>
+        </div>
         <p class="text-center fs-24">Create your garden</p>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-4">
-        <%= link_to new_garden_path do %>
-          <div class="icon">
-            <%= image_tag "circles.svg" %>
-          </div>
-        <% end %>
+        <!-- Secon icon -->
+        <div class="icon">
+          <%= image_tag "circles.svg" %>
+        </div>
         <p class="text-center fs-24">Add your plants</p>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-4">
-        <%= link_to new_garden_path do %>
-          <div class="icon">
-            <%= image_tag "watering.svg" %>
-          </div>
-        <% end %>
+        <!-- Third icon -->
+        <div class="icon">
+          <%= image_tag "watering.svg" %>
+        </div>
         <p class="text-center fs-24">Manage your daily activity</p>
       </div>
     </div>
@@ -46,7 +43,8 @@
   </div>
   <div class="section">
     <div class="text-center">
-      <%= link_to "Create my garden", new_garden_path, class: "btn btn-flat" %>
+      <button class="btn btn-flat">Create a new garden</button>
+      <%= render "form" %>
     </div>
   </div>
 </div>
