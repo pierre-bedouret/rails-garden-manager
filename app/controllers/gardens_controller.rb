@@ -1,6 +1,7 @@
 class GardensController < ApplicationController
   def index
     @gardens = Garden.all
+    @garden = Garden.new
   end
 
   def show
@@ -9,16 +10,13 @@ class GardensController < ApplicationController
     @plants = @garden.plants
   end
 
-  def new
-    @garden = Garden.new
-  end
-
   def create
     @garden = Garden.new(garden_params)
     if @garden.save
       redirect_to garden_path(@garden)
     else
-      render :new
+      @gardens = Garden.all
+      render :index
     end
   end
 

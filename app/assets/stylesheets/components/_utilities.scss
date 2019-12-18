@@ -9,6 +9,34 @@ a {
 .content {
   min-height: calc(100vh - 100px);
 }
+ .p-30 {
+  padding: 30px
+ }
  .pt-30 {
   padding-top: 30px;
  }
+
+.bg-red-orange {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(253,16,21,1) 0%, rgba(230,126,34,1) 100%);
+}
+
+.fadeIn {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.open-symbole:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  margin-left: 10px;
+}
+
+.close-symbole:after {
+  content: '\2796'; /* Unicode character for "minus" sign (-) */
+  font-size: 13px;
+  color: white;
+  margin-left: 10px;
+}
