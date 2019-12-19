@@ -1,4 +1,13 @@
 class PlantsController < ApplicationController
+  before_action :set_plant, only: [:show, :destroy]
+
+  def index
+    @plants = Plant.all
+  end
+
+  def show
+  end
+
   def create
     @garden = Garden.find(params[:garden_id])
     @plant = Plant.new(plant_params)
@@ -17,7 +26,6 @@ class PlantsController < ApplicationController
   end
 
   def destroy
-    @plant = Plant.find(params[:id])
     @garden = @plant.garden
     @plant.destroy
     respond_to do |format|
@@ -30,5 +38,9 @@ class PlantsController < ApplicationController
 
   def plant_params
     params.require(:plant).permit(:name, :image_url)
+  end
+
+  def set_plant
+    @plant = Plant.find(params[:id])
   end
 end

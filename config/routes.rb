@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :gardens, only: [:index, :show, :create] do
     resources :plants, only: [:create]
   end
-  resources :plants, only: [:destroy]
+  resources :plants, only: [:index, :show, :destroy]
 end
