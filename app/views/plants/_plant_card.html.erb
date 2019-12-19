@@ -1,4 +1,8 @@
-<div class="card-plant" data-plant-id="<%= plant.id %>" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path(plant.image_url) %>)">
-  <%= plant.name %>
+<div class="card" data-plant-id="<%= plant.id %>">
+  <%= link_to plant_path(plant) do %>
+    <div class="card-plant" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path(plant.image_url) %>)">
+      <%= plant.name %>
+    </div>
+  <% end %>
   <%= link_to "+", plant_path(plant), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
 </div>

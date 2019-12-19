@@ -1,0 +1,7 @@
+<h1><%= @plant.name %></h1>
+<p>category : <%= @plant.category %></p>
+<p>geographic area : <%= @plant.area %></p>
+<p>Make fruit ? <%= @plant.fruit ? 'Yes' : 'No' %></p>
+<p>Flower's color : <%= @plant.flower_color %></p>
+<p>Maximun size : <%= pluralize(@plant.max_size, 'meter')%></p>
+<p>Lifetime : <%= pluralize(@plant.lifetime, 'year')%></p>

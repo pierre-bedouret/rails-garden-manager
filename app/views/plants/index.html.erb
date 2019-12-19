@@ -1,0 +1,13 @@
+<h1>All our plants</h1>
+
+<ul>
+<% @plants.each do |plant| %>
+  <li><h2>name : <%=  plant.name %></h2></li>
+  <li>category : <%= plant.category %></li>
+  <li>geographic area : <%= plant.area %></li>
+  <li>Make fruit ? <%= plant.fruit ? 'Yes' : 'No' %></li>
+  <li>Flower's color : <%= plant.flower_color %></li>
+  <li>Maximun size : <%= pluralize(plant.max_size, 'meter')%></li>
+  <li>Lifetime : <%= pluralize(plant.lifetime, 'year')%></li>
+<% end %>
+</ul>
