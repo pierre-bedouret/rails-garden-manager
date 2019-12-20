@@ -15,20 +15,7 @@
       <h4 class="text-center">Add a plant</h4>
       <!-- form errors messages -->
       <% if @plant.errors.any? %>
-        <div class="alert alert-warning alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <p>
-            Sorry! But <%= pluralize(@plant.errors.count, "error") %> prevented the plant being saved:
-          </p>
-          <ul>
-            <% @plant.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-          <p>
-            Please try again after correction
-          </p>
-        </div>
+        <%= render 'plants/errors', plant: @plant %>
       <% end %>
       <!-- form new plant -->
       <%= render 'plants/form', garden: @garden, plant: @plant %>

@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-  before_action :set_plant, only: [:show, :destroy]
+  before_action :set_plant, only: [:show, :update, :destroy]
 
   def index
     @plants = Plant.all
@@ -21,6 +21,20 @@ class PlantsController < ApplicationController
       respond_to do |format|
         format.html { render 'gardens/show' }
         format.js # <-- idem
+      end
+    end
+  end
+
+  def update
+    if @plant.update(plant_params)
+      respond_to do |format|
+        format.html { redirect_to plant_path(@plant) }
+        format.js { redirect_to plant_path(@plant) }
+      end
+    else
+      respond_to do |format|
+        format.html { render :show }
+        format.js { render :show }
       end
     end
   end

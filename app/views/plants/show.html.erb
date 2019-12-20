@@ -5,6 +5,7 @@
 </div>
 
 <div class="pt-30 container">
+  <!-- characteristics -->
   <h2>Characteristics :</h2>
   <div class="row">
     <div class="col-12 col-md-4">
@@ -20,5 +21,38 @@
       <p><i class="fas fa-tree"></i> Maximun size : <%= pluralize(@plant.max_size, 'meter')%></p>
     </div>
   <p>You can find it in : <%= link_to @plant.garden.name, garden_path(@plant.garden) %></p>
+  </div>
+
+  <!-- Edit and Destroy buttons -->
+  <div class="mt-3 d-flex">
+    <button class="btn btn-flat mr-5" data-toggle="modal" data-target="#updatePant">
+      Edit plant <i class="fas fa-pen"></i>
+    </button>
+    <button class="btn btn-danger">
+      Delete plant <i class="fas fa-trash"></i>
+    </button>
+  </div>
+
+  <!-- form errors messages -->
+  <% if @plant.errors.any? %>
+    <%= render 'plants/errors', plant: @plant %>
+  <% end %>
+
+  <!-- Modal update -->
+  <!-- Modal -->
+  <div class="modal fade" id="updatePant" tabindex="-1" role="dialog" aria-labelledby="updatePlant" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updatePlant">Want to modify <%= @plant.name %> ?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render 'plants/form', garden: @plant.garden, plant: @plant %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
