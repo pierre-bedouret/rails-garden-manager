@@ -21,7 +21,7 @@ plant_area = [
 ]
 colors = [
   "Red",
-  "Bleu",
+  "Blue",
   "Green",
   "Yellow",
   "Orange",

@@ -1,6 +1,18 @@
 <%= simple_form_for([ garden, plant ], remote: true) do |f| %>
-  <%= f.input :name, placeholder: "Palm tree" %>
-  <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+  <div class="row">
+    <div class="general-informations col-12 col-md-6">
+      <%= f.input :name, placeholder: "Palm tree" %>
+      <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+      <%= f.input :category, placeholder: 'Harry R. M. Pitts' %>
+      <%= f.input :area, collection: Plant::AREAS, include_blank: "Select a geographic area" %>
+    </div>
+    <div class="option-informations col-12 col-md-6">
+      <%= f.input :flower_color, collection: Plant::COLORS, include_blank: "Select a color for the flower" %>
+      <%= f.input :max_size, input_html: { min: '1' }, hint: "Size is in meter. Must be greater than zero" %>
+      <%= f.input :lifetime, input_html: { min: '1' }, hint: "Lifetime is in year. Must be greater than zero"  %>
+      <%= f.input :fruit, label: 'Fruits ? Click here if this plant make some' %>
+    </div>
+  </div>
   <div class="form-actions">
     <%= f.submit "Add", class: "btn btn-flat" %>
   </div>
