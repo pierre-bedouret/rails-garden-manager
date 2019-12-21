@@ -1,4 +1,4 @@
-<%= simple_form_for([ garden, plant ]) do |f| %>
+<%= simple_form_for([ garden, plant ], remote: true) do |f| %>
   <div class="row">
     <div class="general-informations col-12 col-md-6">
       <%= f.input :name, placeholder: "Palm tree" %>

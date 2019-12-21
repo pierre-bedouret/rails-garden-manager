@@ -1,0 +1,27 @@
+function refreshForm(innerHTML) {
+  const editPlantForm = document.getElementById(`edit_plant_${<%= @plant.id %>}`);
+  editPlantForm.innerHTML = innerHTML;
+}
+
+function closeModal() {
+  const buttonClose = document.querySelector('[data-dismiss="modal"]');
+  buttonClose.click();
+}
+
+function refreshBanner(innerHTML) {
+  const banner = document.querySelector("[data-banner-plant-id='<%= @plant.id %>']");
+  banner.innerHTML = innerHTML;
+}
+function refreshCharateristics(innerHTML) {
+  const characteristics = document.querySelector("[data-characteristics-plant-id='<%= @plant.id %>']");
+  characteristics.innerHTML = innerHTML;
+}
+
+
+<% if @plant.errors.any? %>
+  refreshForm('<%= j render "plants/form", garden: @garden, plant: @plant %>');
+<% else %>
+  closeModal();
+  refreshBanner('<%= j render "plants/banner", plant: @plant %>');
+  refreshCharateristics('<%= j render "plants/characteristics", garden: @garden, plant: @plant %>');
+<% end %>
