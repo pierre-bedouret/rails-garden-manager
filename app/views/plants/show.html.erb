@@ -1,26 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @plant.image_url %>');">
-  <div class="container">
-    <h1><%= @plant.name %></h1>
-  </div>
+<!-- banner -->
+<div data-banner-plant-id="<%= @plant.id %>">
+  <%= render 'plants/banner', plant: @plant %>
 </div>
 
 <div class="pt-30 container">
   <!-- characteristics -->
   <h2>Characteristics :</h2>
-  <div class="row">
-    <div class="col-12 col-md-4">
-      <p>Category : <%= @plant.category %></p>
-      <p><i class="fas fa-map-marker-alt"></i> <%= @plant.area %></p>
-    </div>
-    <div class="col-12 col-md-4">
-      <p>Flowers' color : <span class="undeline-<%= @plant.flower_color.downcase %>"><%= @plant.flower_color %></span></p>
-      <p><i class="fas fa-apple-alt"></i> <%= @plant.fruit ? "Make fruits" : "Don't make any fruit" %></p>
-    </div>
-    <div class="col-12 col-md-4">
-      <p><i class="fas fa-history"></i> Lifetime : <%= pluralize(@plant.lifetime, 'year')%></p>
-      <p><i class="fas fa-tree"></i> Maximun size : <%= pluralize(@plant.max_size, 'meter')%></p>
-    </div>
-  <p>You can find it in : <%= link_to @plant.garden.name, garden_path(@plant.garden) %></p>
+  <div data-characteristics-plant-id="<%= @plant.id %>">
+    <%= render 'plants/characteristics', garden: @plant.garden, plant: @plant %>
   </div>
 
   <!-- Edit and Destroy buttons -->
@@ -39,7 +26,6 @@
   <% end %>
 
   <!-- Modal update -->
-  <!-- Modal -->
   <div class="modal fade" id="updatePant" tabindex="-1" role="dialog" aria-labelledby="updatePlant" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

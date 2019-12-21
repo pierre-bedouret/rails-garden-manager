@@ -5,8 +5,7 @@ class PlantsController < ApplicationController
     @plants = Plant.all
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @garden = Garden.find(params[:garden_id])
@@ -20,7 +19,7 @@ class PlantsController < ApplicationController
     else
       respond_to do |format|
         format.html { render 'gardens/show' }
-        format.js # <-- idem
+        format.js # <-- will render `app/views/plants/create.js.erb`
       end
     end
   end
@@ -29,12 +28,12 @@ class PlantsController < ApplicationController
     if @plant.update(plant_params)
       respond_to do |format|
         format.html { redirect_to plant_path(@plant) }
-        format.js { redirect_to plant_path(@plant) }
+        format.js # <-- will render `app/views/plants/update.js.erb
       end
     else
       respond_to do |format|
         format.html { render :show }
-        format.js { render :show }
+        format.js # <-- will render `app/views/plants/update.js.erb
       end
     end
   end
