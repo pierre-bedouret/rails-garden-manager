@@ -15,9 +15,10 @@
     <button class="btn btn-flat mr-5" data-toggle="modal" data-target="#updatePant">
       Edit plant <i class="fas fa-pen"></i>
     </button>
-    <button class="btn btn-danger">
+    <button id="delete-plant-btn" class="btn btn-danger">
       Delete plant <i class="fas fa-trash"></i>
     </button>
+    <%= link_to "", plant_path(@plant), method: :delete, id: "delete-plant", class: "hidden" %>
   </div>
 
   <!-- form errors messages -->
